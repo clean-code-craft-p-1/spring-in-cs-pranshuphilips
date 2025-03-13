@@ -10,9 +10,9 @@ namespace Statistics
     {
         #region Fields
 
-        public float average;
-        public float min;
-        public float max;
+        public double average;
+        public double min;
+        public double max;
 
         #endregion
     }

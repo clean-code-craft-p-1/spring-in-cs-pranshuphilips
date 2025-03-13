@@ -5,30 +5,26 @@ namespace Statistics
 {
     public class StatsComputer
     {
-        public Stats CalculateStatistics(List<float> numbers)
+        public Stats CalculateStatistics(List<double> numbers)
         {
             //Implement statistics here
-            Stats stats = new Stats();
 
-            //Initializing values
-            float min = float.MaxValue;
-            float max = float.MinValue;
-            float sum = 0;
-
-            //Calculating min,max and sum of numbers
-            foreach (float value in numbers)
+            if (numbers == null || numbers.Count == 0) 
             {
-                min = Math.Min(min, value);
-                max = Math.Max(max, value);
-                sum += value;
+                return new Stats
+                {
+                    average = Double.NaN,
+                    max = Double.NaN,
+                    min = Double.NaN
+                };
             }
 
-            //Assigning the values to object
-            stats.min = min;
-            stats.max = max;
-            stats.average = sum / numbers.Count;
-
-            return stats;
+            return new Stats
+            {
+                average = numbers.Average(),
+                max = numbers.Max(),
+                min = numbers.Min()
+            };
         }
     }
 }
